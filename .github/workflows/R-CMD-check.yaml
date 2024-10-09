@@ -45,7 +45,7 @@ jobs:
         run: Rscript -e "install.packages('pak')"
 
       - name: Install dependencies with pak
-        run: Rscript -e "pak::pkg_install(c('sessioninfo', 'rcmdcheck', 'SpikeStriker/AdvanceRConnectingToAPI'))"
+        run: Rscript -e "pak::pkg_install(c('shiny', 'remotes', 'knitr', 'rmarkdown', 'sessioninfo', 'rcmdcheck', 'SpikeStriker/AdvanceRConnectingToAPI'))"
 
       - name: Print session info
         run: Rscript -e "sessionInfo()"
