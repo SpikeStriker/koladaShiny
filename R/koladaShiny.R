@@ -2,10 +2,12 @@
 #' @title A Shiny app to visualise kolada data
 #' @description A Shiny app to visualise kolada data fetched using AdvanceRConnectingToAPI.
 #' @import shiny
-#' @import devtools
+#' @import remotes
 #' @export koladaShiny
 #' 
-devtools::install_github("SpikeStriker/AdvanceRConnectingToAPI")
+
+remotes::install_github('SpikeStriker/AdvanceRConnectingToAPI')
+remotes::install_deps(dependencies = TRUE)
 
 koladaShiny <- function() {
   ui <- fluidPage(
@@ -44,3 +46,4 @@ koladaShiny <- function() {
   shinyApp(ui = ui, server = server)
 }
 
+# devtools::install_github("SpikeStriker/AdvanceRConnectingToAPI")@import devtools
