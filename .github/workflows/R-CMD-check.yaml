@@ -41,14 +41,32 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
+      - name: Install pak package
+        run: Rscript -e "install.packages('pak')"
+
       - name: Install dependencies with pak
-        run: R -e "install.packages('pak'); pak::pkg_install(c('sessioninfo', 'rcmdcheck', 'SpikeStriker/AdvanceRConnectingToAPI'))"
+        run: Rscript -e "pak::pkg_install(c('shiny', 'remotes', 'knitr', 'rmarkdown', 'sessioninfo', 'rcmdcheck', 'SpikeStriker/AdvanceRConnectingToAPI'))"
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: any::rcmdcheck
-          needs: check
+      - name: Install devtools on Windows
+        if: runner.os == 'Windows'
+        run: Rscript -e "install.packages('devtools')"
 
+      - name: Print session info
+        run: Rscript -e "sessionInfo()"
+
+      - name: Print installed packages
+        run: Rscript -e "installed.packages()"
+
+      - uses: r-lib/actions/setup-tinytex@v2
+
+      - name: Check R package on Windows
+        if: runner.os == 'Windows'
+        run: Rscript -e "devtools::check()"
+
+      - name: Check R package on other platforms
+        if: runner.os != 'Windows'
+        run: R CMD check .
+          
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true

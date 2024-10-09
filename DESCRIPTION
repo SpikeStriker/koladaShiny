@@ -8,10 +8,12 @@ Maintainer: Uday Jain <uday9k@gmail.com>
 Description: More about what it does (maybe more than one line).
 Encoding: UTF-8
 License: MIT + file LICENSE
+Depends:
+    R (>= 3.5.0),
+    AdvanceRConnectingToAPI
 Imports: 
     shiny,
-    remotes,
-    AdvanceRConnectingToAPI
+    remotes
 Suggests: 
     knitr,
     rmarkdown
