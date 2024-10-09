@@ -45,7 +45,7 @@ jobs:
         run: R -e "install.packages('remotes')"
 
       - name: Install AdvanceRConnectingToAPI
-        run: R -e "remotes::install_github('SpikeStriker/AdvanceRConnectingToAPI')"
+        run: R -e "remotes::install_github('SpikeStriker/AdvanceRConnectingToAPI',force=TRUE)"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
