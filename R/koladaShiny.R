@@ -7,7 +7,6 @@
 #' 
 
 remotes::install_github('SpikeStriker/AdvanceRConnectingToAPI')
-remotes::install_deps(dependencies = TRUE)
 
 koladaShiny <- function() {
   ui <- fluidPage(
