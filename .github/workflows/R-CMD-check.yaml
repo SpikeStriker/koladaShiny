@@ -47,6 +47,10 @@ jobs:
       - name: Install dependencies with pak
         run: Rscript -e "pak::pkg_install(c('shiny', 'remotes', 'knitr', 'rmarkdown', 'sessioninfo', 'rcmdcheck', 'SpikeStriker/AdvanceRConnectingToAPI'))"
 
+      - name: Install devtools on Windows
+        if: runner.os == 'Windows'
+        run: Rscript -e "install.packages('devtools')"
+
       - name: Print session info
         run: Rscript -e "sessionInfo()"
 
