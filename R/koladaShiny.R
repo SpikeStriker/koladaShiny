@@ -3,6 +3,7 @@
 #' @description A Shiny app to visualise kolada data fetched using AdvanceRConnectingToAPI.
 #' @import shiny
 #' @import remotes
+#' @import AdvanceRConnectingToAPI
 #' @export koladaShiny
 #' 
 
