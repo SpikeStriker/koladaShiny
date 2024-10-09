@@ -42,16 +42,16 @@ jobs:
           use-public-rspm: true
 
       - name: Install pak package
-        run: R -e "install.packages('pak')"
+        run: Rscript -e "install.packages('pak')"
 
       - name: Install dependencies with pak
-        run: R -e "pak::pkg_install(c('sessioninfo', 'rcmdcheck', 'SpikeStriker/AdvanceRConnectingToAPI'))"
+        run: Rscript -e "pak::pkg_install(c('sessioninfo', 'rcmdcheck', 'SpikeStriker/AdvanceRConnectingToAPI'))"
 
       - name: Print session info
-        run: R -e "sessionInfo()"
+        run: Rscript -e "sessionInfo()"
 
       - name: Print installed packages
-        run: R -e "installed.packages()"
+        run: Rscript -e "installed.packages()"
 
       - name: Check R package
         run: R CMD check .
