@@ -40,11 +40,15 @@ jobs:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
+      - name: Install remotes package
+        run: |
+          R -e "install.packages('remotes')"
+      - name: Install AdvanceRConnectingToAPI
+        run: |
+          R -e "remotes::install_github('SpikeStriker/AdvanceRConnectingToAPI')"
       - name: Install dependencies
         run: |
-          install.packages('remotes')
-          remotes::install_github('username/AdvanceRConnectingToAPI')
-          remotes::install_deps(dependencies = TRUE)
+          R -e "remotes::install_deps(dependencies = TRUE)"
           
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
