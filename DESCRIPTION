@@ -10,7 +10,7 @@ Encoding: UTF-8
 License: MIT + file LICENSE
 Imports: 
     shiny,
-    devtools,
+    remotes,
     AdvanceRConnectingToAPI
 Suggests: 
     knitr,
