@@ -1,17 +1,17 @@
 ---
 title: "koladaShiny"
-output:
-  pdf_document: 
-    latex_engine: pdflatex
+output: pdf_document
+vignette: >
+  %\VignetteIndexEntry{koladaShiny}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
 options(repos = c(CRAN = "https://cran.rstudio.com/"))
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  tidy = TRUE,
-  tidy.opts = list(width.cutoff = 60)
+  comment = "#>"
 )
 ```
 
@@ -29,7 +29,8 @@ Before using the `koladaShiny` function, make sure the following packages are in
 - `remotes`: For installing packages from GitHub.
 - `AdvanceRConnectingToAPI`: For fetching data from Kolada.
 
-```{r}
+
+```{r setup, echo=TRUE,message=FALSE,warning=FALSE}
 # Install necessary packages
 install.packages("shiny")
 install.packages("remotes")
