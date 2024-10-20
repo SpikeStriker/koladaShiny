@@ -4,13 +4,11 @@
 #' @import shiny
 #' @import remotes
 #' @import AdvanceRConnectingToAPI
-#' @export koladaShiny
 #' 
-
+library(shiny)
 remotes::install_github('SpikeStriker/AdvanceRConnectingToAPI')
 
-koladaShiny <- function() {
-  ui <- fluidPage(
+ui <- fluidPage(
     titlePanel("Kolada Data"),
     sidebarLayout(
       sidebarPanel(
@@ -26,7 +24,7 @@ koladaShiny <- function() {
       )
     )
   )
-  server <- function(input, output) {
+server <- function(input, output) {
     observeEvent(input$go, {
       if (!requireNamespace("AdvanceRConnectingToAPI", quietly = TRUE)) {
         stop("Package 'AdvanceRConnectingToAPI' is required but not installed.")
@@ -43,7 +41,6 @@ koladaShiny <- function() {
     })
   }
   
-  shinyApp(ui = ui, server = server)
-}
+shinyApp(ui = ui, server = server)
 
 # devtools::install_github("SpikeStriker/AdvanceRConnectingToAPI")@import devtools
